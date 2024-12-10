@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <noscript>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          background-color: #f0f0f0;
+          padding: 20px;
+        }
+        .noscript-message {
+          background-color: #ffeeee;
+          border: 2px solid red;
+          color: red;
+          padding: 20px;
+          max-width: 600px;
+          margin: 0 auto;
+          border-radius: 10px;
+        }
+      </style>
+    </noscript>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      #root-error {
+        display: none;
+        color: red;
+        text-align: center;
+        padding: 20px;
+        background-color: #ffeeee;
+        border: 1px solid red;
+      }
+      #root:empty + #root-error {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript-message">
+        <h1>JavaScript is Disabled</h1>
+        <p>This application requires JavaScript to function. Please enable JavaScript in your browser settings to use this application.</p>
+      </div>
+    </noscript>
+
+    <div id="root"></div>
+    <div id="root-error">
+      <h1>🚨 React Application Failed to Load</h1>
+      <p>Possible issues:</p>
+      <ul>
+        <li>JavaScript is disabled</li>
+        <li>Module loading error</li>
+        <li>Dependency conflict</li>
+      </ul>
+      <p>Please check the browser console for detailed error messages.</p>
+    </div>
+    <script type="module" src="/src/main.tsx" onerror="document.getElementById('root-error').style.display = 'block'"></script>
+    <script>
+      window.addEventListener('error', function(event) {
+        console.error('Unhandled error:', event.error);
+        document.getElementById('root-error').style.display = 'block';
+      });
+    </script>
+  </body>
+</html>
